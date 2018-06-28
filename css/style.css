@@ -11,7 +11,7 @@ body {
 .carousel{
     position: relative;
     width: 680px;
-    height: 490px;
+    height: 550px;
     margin: 0 auto;
     background-color: whitesmoke;
     border-radius: 10px;
@@ -24,9 +24,9 @@ body {
   top: 50%;
   transform: translate(-50%,-50%);
   display: inline-block;
-  -webkit-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
   overflow: hidden;
 }
 
@@ -72,7 +72,7 @@ body {
 
 .dots{    
     position: absolute;
-    bottom: 15px;
+    bottom: 45px;
     left: 50%;
     transform: translate(-50%,0);
 }
@@ -93,4 +93,81 @@ body {
 
 .dotActive{
     background-color: darkgoldenrod;
+}
+
+.progress {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    background-color: lightgray;
+}
+.bar {
+    width: 1%;
+    height: 10px;
+    background-color: steelblue;    
+    -webkit-transition: width 3s;
+    -moz-transition: width 3s;
+    transition: width 3s;
+}
+
+.bar.full{
+    width: 100%;
+}
+
+
+/********** Media queries ***********************/
+@media only screen and (max-device-width: 768px) {
+	.items p{
+        font-size: 25px;
+    }
+
+    .carousel{
+        width: 100%;
+        height: 600px;
+    }
+
+    .items {
+        width: 80%;
+    }
+
+    .items {
+        text-align: center;
+    }
+
+    .dot{
+        width: 15px;
+        height: 15px;
+    }
+    
+    .button i{
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-device-width: 375px) {
+	.items p{
+        font-size: 35px;
+    }
+
+    .carousel{
+        width: 100%;
+        height: 750px;
+    }
+
+    .items {
+        width: 80%;
+    }
+
+    .items {
+        text-align: center;
+    }
+
+    .dot{
+        width: 20px;
+        height: 20px;
+    }
+
+    .button i{
+        font-size: 50px;
+    }
 }
