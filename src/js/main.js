@@ -47,23 +47,20 @@ function swap(action){
   
   //if the action is undefined go forward
   if(action === undefined || action === 'forward'){
-      $('#'+currentItem).addClass('hidden');
       $('#dot'+currentItem).removeClass('dotActive');
       currentItem = (currentItem + 1) % itemCount;
-      $('#'+currentItem).removeClass('hidden');      
+      $(".slide").css("transform","translateX("+currentItem * -400+"px)");      
       $('#dot'+currentItem).addClass('dotActive');
-  }else if(action === 'backward'){
-      $('#'+currentItem).addClass('hidden');      
+  }else if(action === 'backward'){//go backward
       $('#dot'+currentItem).removeClass('dotActive');
       currentItem = (currentItem +6) % itemCount;
-      $('#'+currentItem).removeClass('hidden');   
+      $(".slide").css("transform","translateX("+currentItem * -400+"px)");      
       $('#dot'+currentItem).addClass('dotActive');
-  }else{    
-      $('#'+currentItem).addClass('hidden');
+  }else{ //if the user click in a dot       
       $('#dot'+currentItem).removeClass('dotActive');
       let num = action.substring(3, 4);
-      currentItem = parseInt(num);
-      $('#'+currentItem).removeClass('hidden');   
+      currentItem = parseInt(num);     
+      $(".slide").css("transform","translateX("+currentItem * -400+"px)");     
       $('#dot'+currentItem).addClass('dotActive');
   }    
 
