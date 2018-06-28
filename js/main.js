@@ -15,12 +15,12 @@ function initializeApp(){
     timerId = setInterval(swap,3000);
     
     //next button 
-    $('.next').click(function() {
+    $('.next').click(() => {
       swap('forward');
     });
 
     //back button 
-    $('.back').click(function() {
+    $('.back').click(()=> {
       swap('backward');
     });
 
@@ -31,6 +31,10 @@ function initializeApp(){
       }, 
       () =>{
         timerId = setInterval(swap,3000);
+    });
+
+    $('.dot').click((event)=> {
+      swap(event.target.id);
     });
 }
 
@@ -44,12 +48,23 @@ function swap(action){
   //if the action is undefined go forward
   if(action === undefined || action === 'forward'){
       $('#'+currentItem).addClass('hidden');
+      $('#dot'+currentItem).removeClass('dotActive');
       currentItem = (currentItem + 1) % itemCount;
-      $('#'+currentItem).removeClass('hidden');
-  }else{
-      $('#'+currentItem).addClass('hidden');
+      $('#'+currentItem).removeClass('hidden');      
+      $('#dot'+currentItem).addClass('dotActive');
+  }else if(action === 'backward'){
+      $('#'+currentItem).addClass('hidden');      
+      $('#dot'+currentItem).removeClass('dotActive');
       currentItem = (currentItem +6) % itemCount;
-      $('#'+currentItem).removeClass('hidden');
+      $('#'+currentItem).removeClass('hidden');   
+      $('#dot'+currentItem).addClass('dotActive');
+  }else{    
+      $('#'+currentItem).addClass('hidden');
+      $('#dot'+currentItem).removeClass('dotActive');
+      let num = action.substring(3, 4);
+      currentItem = parseInt(num);
+      $('#'+currentItem).removeClass('hidden');   
+      $('#dot'+currentItem).addClass('dotActive');
   }    
 
 }
