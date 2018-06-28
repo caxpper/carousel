@@ -1,0 +1,34 @@
+body {
+    height: 100vh;
+}
+
+.container {
+    margin: auto;
+    padding: 20px;
+    width: 90vw;
+}
+
+.carousel{
+    position: relative;
+    width: 40%;
+    height: 50%;
+    margin: 0 auto;
+}
+    
+.items {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  left:50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: inline-block;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  overflow: hidden;
+}
+
+.hidden{
+  opacity:0;
+}
