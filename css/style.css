@@ -10,8 +10,8 @@ body {
 
 .carousel{
     position: relative;
-    width: 40%;
-    height: 50%;
+    width: 550px;
+    height: 450px;
     margin: 0 auto;
 }
     
@@ -31,4 +31,24 @@ body {
 
 .hidden{
   opacity:0;
+}
+
+.next, .back{  
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,0);
+    cursor: pointer;
+}
+
+.next{
+    right: 5px;
+}
+
+.back{
+    left: 30px;
+}
+
+.button i{
+    font-size: 30px;
+    color: steelblue;
 }

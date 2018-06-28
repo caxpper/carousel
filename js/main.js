@@ -1,6 +1,6 @@
 
 $(document).ready(initializeApp);
-var autoSwap;
+var timerId;
 var currentItem = 0;
 var itemCount;
 
@@ -12,7 +12,26 @@ function initializeApp(){
     itemCount = $('.carousel .items').length;
 
     //init the autoswap
-    autoSwap = setInterval(swap,4000);
+    timerId = setInterval(swap,3000);
+    
+    //next button 
+    $('.next').click(function() {
+      swap('forward');
+    });
+
+    //back button 
+    $('.back').click(function() {
+      swap('backward');
+    });
+
+    //disabled the auto swap when the 
+    $('.carousel').hover(
+      () => {
+        clearInterval(timerId);
+      }, 
+      () =>{
+        timerId = setInterval(swap,3000);
+    });
 }
 
 /**
