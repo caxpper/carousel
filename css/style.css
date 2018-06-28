@@ -10,9 +10,12 @@ body {
 
 .carousel{
     position: relative;
-    width: 550px;
-    height: 450px;
+    width: 680px;
+    height: 490px;
     margin: 0 auto;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    border: 1px solid;
 }
     
 .items {
@@ -51,11 +54,11 @@ body {
 }
 
 .next{
-    right: 5px;
+    right: 45px;
 }
 
 .back{
-    left: 5px;
+    left: 45px;
 }
 
 .button i{
@@ -69,7 +72,7 @@ body {
 
 .dots{    
     position: absolute;
-    bottom: 5px;
+    bottom: 15px;
     left: 50%;
     transform: translate(-50%,0);
 }
