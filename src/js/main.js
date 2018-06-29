@@ -51,14 +51,21 @@ function initializeApp(){
       swap(event.target.id);
     });
 
+    $('.slideContainer').on("swipeleft",() => {
+      swap('backward');
+    });   
+
+    $('.slideContainer').on("swiperight",() => {
+      swap('forward');
+    });   
+
 }
 
-function autoSwap(){
-  
-    $('.bar').animate({'width' : '100%'}, 3000, () => {
+function autoSwap(){  
+    swap();
+    $('.bar').animate({'width' : '100%'}, 2900, () => {
       $('.bar').css({'width' : '1%'})
     });
-    swap();
 }
 
 /**
