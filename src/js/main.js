@@ -5,6 +5,8 @@ var currentItem = 0;
 var itemCount;
 var item_width;
 var left_value;
+var xDown = null;                                                        
+var yDown = null;  
 
 /**
  * Initialize the automatic carousel
@@ -51,13 +53,9 @@ function initializeApp(){
       swap(event.target.id);
     });
 
-    $('.slideContainer').on("swipeleft",() => {
-      swap('backward');
-    });   
-
-    $('.slideContainer').on("swiperight",() => {
-      swap('forward');
-    });   
+    document.addEventListener('touchstart', handleTouchStart, false);        
+    document.addEventListener('touchmove', handleTouchMove, false);
+      
 
 }
 
@@ -122,5 +120,40 @@ function swap(action){
 
 }
 
+function handleTouchStart(evt) {                                         
+  xDown = evt.touches[0].clientX;                                      
+  yDown = evt.touches[0].clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+  if ( ! xDown || ! yDown ) {
+      return;
+  }
+
+  var xUp = evt.touches[0].clientX;                                    
+  var yUp = evt.touches[0].clientY;
+
+  var xDiff = xDown - xUp;
+  var yDiff = yDown - yUp;
+
+  if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+      if ( xDiff > 0 ) {
+          /* left swipe */ 
+          swap('backward');
+      } else {
+          /* right swipe */
+          swap('forward');
+      }                       
+  } else {
+      if ( yDiff > 0 ) {
+          /* up swipe */ 
+      } else { 
+          /* down swipe */
+      }                                                                 
+  }
+  /* reset values */
+  xDown = null;
+  yDown = null;                                             
+};
 
 
