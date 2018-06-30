@@ -121,31 +121,33 @@ body {
 /********** Media queries ***********************/
 @media only screen and (max-device-width: 768px) {
 	.items p{
-        font-size: 20px;
+        font-size: 28px;
     }
     
     .carousel{
         width: 100%;
+        height: 890px;
     }
 
-    .dot{
-        width: 15px;
-        height: 15px;
-    }
-    
-    .button i{
-        font-size: 40px;
-    }
-}
-
-@media only screen and (max-device-width: 375px) {
-	
-    .dot{
-        width: 20px;
-        height: 20px;
+    .slideContainer {
+        width: 95%;
+        height: 800px;
     }
 
-    .button i{
-        font-size: 50px;
+    .slide {
+        width: 700%;
+    }
+
+    .items {
+        width: 14.68%;
+    }
+
+    .items img {
+        width: 100%;
+        height: 75%;
+    }
+        
+    .button{
+        display: none;
     }
 }

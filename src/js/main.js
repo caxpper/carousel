@@ -116,7 +116,9 @@ function swap(action){
       for(let i = 0; i < top; i++){
           num > currentItem ? swap('forward') : swap('backward');
       }
-  }    
+  }
+  
+  return false;
 
 }
 
@@ -139,18 +141,12 @@ function handleTouchMove(evt) {
   if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
       if ( xDiff > 0 ) {
           /* left swipe */ 
-          swap('backward');
+          swap('forward');
       } else {
           /* right swipe */
-          swap('forward');
+          swap('backward');
       }                       
-  } else {
-      if ( yDiff > 0 ) {
-          /* up swipe */ 
-      } else { 
-          /* down swipe */
-      }                                                                 
-  }
+  } 
   /* reset values */
   xDown = null;
   yDown = null;                                             
