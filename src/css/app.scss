@@ -9,6 +9,7 @@ body {
 }
 
 .slideContainer{
+    position: relative;
     width: 400px;
     height: 400px;
     margin: 0 auto;
@@ -16,11 +17,8 @@ body {
 }
 
 .slide {
-    width:2800px; //7*400px  
-    -webkit-transition:all 1.0s ease-in-out;
-    -moz-transition:all 1.0s ease-in-out;
-    -o-transition:all 1.0s ease-in-out;
-    transition:all 1.0s ease-in-out;
+    position: relative;
+    width:2800px; 
 }
 
 .carousel{
@@ -35,7 +33,6 @@ body {
     
 .items {
   float: left;
-  overflow: hidden;  
 }
 
 .items img{    
@@ -82,25 +79,26 @@ body {
     position: absolute;
     bottom: 45px;
     left: 50%;
-    transform: translate(-50%,0);
+    transform: translate(-50%,0);    
+    width: 390px;
 }
 
-.dot{
+.dots img{
     display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 2px;
-    border-radius: 50%;
-    background-color: steelblue; 
-    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    margin: 0 1px;
+    cursor: pointer;    
+    opacity: .5;
 }
 
-.dot:hover{
-    border: 2px #23415a solid;
+.dots img:hover{
+    border: 1px #23415a solid;
 }
 
 .dotActive{
-    background-color: darkgoldenrod;
+    opacity: 1 !important; 
+    transform: scale(1.2);
 }
 
 .progress {
@@ -112,10 +110,7 @@ body {
 .bar {
     width: 1%;
     height: 10px;
-    background-color: steelblue;    
-    -webkit-transition: width 3s;
-    -moz-transition: width 3s;
-    transition: width 3s;
+    background-color: steelblue; 
 }
 
 .bar.full{
@@ -126,31 +121,43 @@ body {
 /********** Media queries ***********************/
 @media only screen and (max-device-width: 768px) {
 	.items p{
-        font-size: 20px;
+        font-size: 28px;
     }
     
     .carousel{
         width: 100%;
+        height: 890px;
     }
 
-    .dot{
-        width: 15px;
-        height: 15px;
+    .slideContainer {
+        width: 95%;
+        height: 800px;
+    }
+
+    .slide {
+        width: 700%;
+    }
+
+    .items {
+        width: 14.2859%;
+    }
+
+    .items img {
+        width: 100%;
+        height: 75%;
+    }
+        
+    .button{
+        display: none;
+    }
+
+    .dots{
+        width: 550px;
+    }
+
+    .dots img{
+        width: 70px;
+        height: 55px;
     }
     
-    .button i{
-        font-size: 40px;
-    }
-}
-
-@media only screen and (max-device-width: 375px) {
-	
-    .dot{
-        width: 20px;
-        height: 20px;
-    }
-
-    .button i{
-        font-size: 50px;
-    }
 }
